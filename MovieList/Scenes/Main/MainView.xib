@@ -11,23 +11,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="MovieList" customModuleProvider="target">
             <connections>
+                <outlet property="nowPlayingCollectionView" destination="YEx-aG-fAm" id="DDm-Fz-TvO"/>
+                <outlet property="upcomingsTableView" destination="61Q-fs-lHU" id="tLh-TZ-AWe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fnK-FL-8Nc">
-                    <rect key="frame" x="0.0" y="0.0" width="402" height="852"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnK-FL-8Nc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="znN-nJ-rLQ">
-                            <rect key="frame" x="0.0" y="0.0" width="394" height="300"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="813"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YEx-aG-fAm">
-                                    <rect key="frame" x="0.0" y="0.0" width="394" height="300"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="300" id="HTG-N2-4ca"/>
@@ -39,23 +40,26 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="61Q-fs-lHU">
+                                    <rect key="frame" x="0.0" y="300" width="375" height="513"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="513" id="1WQ-Ug-Hw3"/>
+                                    </constraints>
+                                </tableView>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="61Q-fs-lHU" firstAttribute="top" secondItem="YEx-aG-fAm" secondAttribute="bottom" id="4LF-gZ-gOy"/>
+                                <constraint firstItem="61Q-fs-lHU" firstAttribute="top" secondItem="YEx-aG-fAm" secondAttribute="bottom" id="B0v-TU-jlf"/>
+                            </constraints>
                         </stackView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="61Q-fs-lHU">
-                            <rect key="frame" x="0.0" y="300" width="402" height="552"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </tableView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="width" secondItem="WLh-Ye-hA8" secondAttribute="width" multiplier="0.9801" id="0M5-Jg-80f"/>
-                        <constraint firstItem="61Q-fs-lHU" firstAttribute="leading" secondItem="WLh-Ye-hA8" secondAttribute="leading" id="7WM-G7-DiI"/>
-                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="trailing" secondItem="Evq-ri-gGQ" secondAttribute="trailing" id="8hY-0o-GWj"/>
-                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="top" secondItem="Evq-ri-gGQ" secondAttribute="top" id="9n3-59-r7y"/>
-                        <constraint firstItem="WLh-Ye-hA8" firstAttribute="bottom" secondItem="61Q-fs-lHU" secondAttribute="bottom" id="Hf8-hI-BkI"/>
-                        <constraint firstItem="WLh-Ye-hA8" firstAttribute="trailing" secondItem="61Q-fs-lHU" secondAttribute="trailing" id="X9R-EI-sjt"/>
-                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="leading" secondItem="Evq-ri-gGQ" secondAttribute="leading" id="p1P-f6-e0v"/>
-                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="bottom" secondItem="Evq-ri-gGQ" secondAttribute="bottom" id="vZz-GJ-kM2"/>
-                        <constraint firstItem="61Q-fs-lHU" firstAttribute="top" secondItem="znN-nJ-rLQ" secondAttribute="bottom" id="xz5-OV-sZW"/>
+                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="trailing" secondItem="Evq-ri-gGQ" secondAttribute="trailing" id="CIW-6E-5dA"/>
+                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="leading" secondItem="Evq-ri-gGQ" secondAttribute="leading" id="E8O-Z6-HyS"/>
+                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="width" secondItem="WLh-Ye-hA8" secondAttribute="width" id="hxu-Io-aDm"/>
+                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="bottom" secondItem="Evq-ri-gGQ" secondAttribute="bottom" id="lWy-Ps-zQb"/>
+                        <constraint firstItem="znN-nJ-rLQ" firstAttribute="top" secondItem="Evq-ri-gGQ" secondAttribute="top" id="x7P-G7-GND"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="Evq-ri-gGQ"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="WLh-Ye-hA8"/>
@@ -63,8 +67,14 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnK-FL-8Nc" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="2dc-0U-yJX"/>
+                <constraint firstItem="fnK-FL-8Nc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="52N-bX-oFn"/>
+                <constraint firstItem="fnK-FL-8Nc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Tzn-pr-9sD"/>
+                <constraint firstItem="fnK-FL-8Nc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="aWR-uu-hoW"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+            <point key="canvasLocation" x="133.58778625954199" y="-10.563380281690142"/>
         </view>
     </objects>
     <resources>
