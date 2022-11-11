@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1163F0B291EDBE000418A6B /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1163F0A291EDBE000418A6B /* DetailViewModel.swift */; };
+		B1163F0D291EE30700418A6B /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1163F0C291EE30700418A6B /* SF-Pro-Text-Regular.otf */; };
 		B1C72DF4291E5B93007033A7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C72DF3291E5B93007033A7 /* UIViewController+Extensions.swift */; };
 		B1C72DF9291E6A54007033A7 /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1C72DF7291E6A54007033A7 /* SF-Pro-Text-Bold.otf */; };
 		B1C72DFA291E6A54007033A7 /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1C72DF8291E6A54007033A7 /* SF-Pro-Text-Medium.otf */; };
+		B1C72DFD291E9387007033A7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C72DFB291E9387007033A7 /* DetailViewController.swift */; };
+		B1C72DFE291E9387007033A7 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C72DFC291E9387007033A7 /* DetailView.xib */; };
 		B1D61A6A291E29E900524124 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D61A69291E29E900524124 /* AppDelegate.swift */; };
 		B1D61A6C291E29E900524124 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D61A6B291E29E900524124 /* SceneDelegate.swift */; };
 		B1D61A73291E29EA00524124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D61A72291E29EA00524124 /* Assets.xcassets */; };
@@ -32,9 +36,13 @@
 		0ACF5CCF7263CABC1CF43CDD /* Pods-MovieList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieList.debug.xcconfig"; path = "Target Support Files/Pods-MovieList/Pods-MovieList.debug.xcconfig"; sourceTree = "<group>"; };
 		0CE27E4B2C4D6EE1D52F67ED /* Pods-MovieList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieList.release.xcconfig"; path = "Target Support Files/Pods-MovieList/Pods-MovieList.release.xcconfig"; sourceTree = "<group>"; };
 		88BFB93A59466974708E290D /* Pods_MovieList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1163F0A291EDBE000418A6B /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		B1163F0C291EE30700418A6B /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		B1C72DF3291E5B93007033A7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		B1C72DF7291E6A54007033A7 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		B1C72DF8291E6A54007033A7 /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
+		B1C72DFB291E9387007033A7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B1C72DFC291E9387007033A7 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		B1D61A66291E29E900524124 /* MovieList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D61A69291E29E900524124 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D61A6B291E29E900524124 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +120,7 @@
 			children = (
 				B1C72DF7291E6A54007033A7 /* SF-Pro-Text-Bold.otf */,
 				B1C72DF8291E6A54007033A7 /* SF-Pro-Text-Medium.otf */,
+				B1163F0C291EE30700418A6B /* SF-Pro-Text-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -217,6 +226,9 @@
 		B1F848F7291E32940088DF1F /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				B1C72DFC291E9387007033A7 /* DetailView.xib */,
+				B1C72DFB291E9387007033A7 /* DetailViewController.swift */,
+				B1163F0A291EDBE000418A6B /* DetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -366,9 +378,11 @@
 			files = (
 				B1D61A76291E29EA00524124 /* LaunchScreen.storyboard in Resources */,
 				B1C72DF9291E6A54007033A7 /* SF-Pro-Text-Bold.otf in Resources */,
+				B1C72DFE291E9387007033A7 /* DetailView.xib in Resources */,
 				B1C72DFA291E6A54007033A7 /* SF-Pro-Text-Medium.otf in Resources */,
 				B1F848FB291E339B0088DF1F /* MainView.xib in Resources */,
 				B1D61A73291E29EA00524124 /* Assets.xcassets in Resources */,
+				B1163F0D291EE30700418A6B /* SF-Pro-Text-Regular.otf in Resources */,
 				B1F84912291E47370088DF1F /* UpcomingsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C72DFD291E9387007033A7 /* DetailViewController.swift in Sources */,
 				B1F848FA291E339B0088DF1F /* MainViewController.swift in Sources */,
 				B1D61A6A291E29E900524124 /* AppDelegate.swift in Sources */,
 				B1D61A6C291E29E900524124 /* SceneDelegate.swift in Sources */,
@@ -448,6 +463,7 @@
 				B1F84902291E35480088DF1F /* MovieListEndpoints.swift in Sources */,
 				B1F84907291E38930088DF1F /* ServiceManager.swift in Sources */,
 				B1F84917291E55FB0088DF1F /* CellIDs.swift in Sources */,
+				B1163F0B291EDBE000418A6B /* DetailViewModel.swift in Sources */,
 				B1F8490B291E3A150088DF1F /* Movie.swift in Sources */,
 				B1F84909291E39B50088DF1F /* MovieService.swift in Sources */,
 				B1F8490D291E41700088DF1F /* MainViewModel.swift in Sources */,

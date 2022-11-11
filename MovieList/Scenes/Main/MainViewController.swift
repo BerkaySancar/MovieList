@@ -11,6 +11,7 @@ protocol MainViewProtocol: AnyObject {
     
     func dataRefreshed()
     func prepareTableView()
+    func prepareCollectionView()
     func setLoading(isLoading: Bool)
     func onError(title: String, message: String)
 }
@@ -29,8 +30,15 @@ final class MainViewController: UIViewController {
         viewModel.viewDidLoad()
         viewModel.getUpcomingMovies(page: 1)
     }
+    
+    @objc
+    private func pullToRefresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.viewModel.getUpcomingMovies(page: 1)
+            self.upcomingsTableView.refreshControl?.endRefreshing()
+        }
+    }
 }
-
 // MARK: - TableView Delegate & DataSource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -54,6 +62,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 136
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // to do
+        let viewController = DetailViewController(nibName: "DetailView", bundle: nil)
+        viewController.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 // MARK: - View Protocol
@@ -64,6 +80,14 @@ extension MainViewController: MainViewProtocol {
         upcomingsTableView.dataSource = self
         upcomingsTableView.register(UINib(nibName: "UpcomingsTableViewCell", bundle: nil),
                                     forCellReuseIdentifier: CellIdentifiers.upcomingsCell.rawValue)
+        
+        let refreshControl = UIRefreshControl()
+        upcomingsTableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
+    }
+    
+    func prepareCollectionView() {
+        
     }
     
     func dataRefreshed() {

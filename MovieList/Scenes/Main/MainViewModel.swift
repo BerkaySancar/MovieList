@@ -30,13 +30,13 @@ final class MainViewModel: MainViewModelProtocol {
     }
     func viewDidLoad() {
         view?.prepareTableView()
+        view?.prepareCollectionView()
     }
     
     func getUpcomingMovies(page: Int) {
         self.view?.setLoading(isLoading: true)
-        service.fetchUpcomingMovies(page: 1) { [weak self] results in
+        service.fetchUpcomingMovies(page: page) { [weak self] results in
             guard let self else { return }
-            
             switch results {
             case .success(let movies):
                 self.movies = movies

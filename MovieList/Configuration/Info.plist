@@ -6,6 +6,7 @@
 	<array>
 		<string>SF-Pro-Text-Bold</string>
 		<string>SF-Pro-Text-Medium</string>
+		<string>SF-Pro-Text-Regular</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
