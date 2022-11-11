@@ -12,6 +12,7 @@ protocol MovieServiceProtocol {
     
     func fetchUpcomingMovies(page: Int, completion: @escaping (Result<[Movie], Error>) -> Void)
     func fetchNowPlayingMovies(page: Int, completion: @escaping (Result<[Movie], Error>) -> Void)
+    func fetchMovieDetail(id: Int, completion: @escaping (Result<Movie, Error>) -> Void)
 }
 
 struct MovieService: MovieServiceProtocol {
@@ -42,6 +43,21 @@ struct MovieService: MovieServiceProtocol {
             switch results {
             case .success(let data):
                 completion(.success(data.results))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func fetchMovieDetail(id: Int, completion: @escaping (Result<Movie, Error>) -> Void) {
+        let url = MovieListEndpoints.movieDetail(id: id).url
+        
+        ServiceManager.shared.sendRequest(type: Movie.self,
+                                          url: url, method: HTTPMethod(rawValue: MovieListEndpoints.movieDetail(id: id).httpMethod)) { results in
+            
+            switch results {
+            case .success(let data):
+                completion(.success(data))
             case .failure(let error):
                 completion(.failure(error))
             }

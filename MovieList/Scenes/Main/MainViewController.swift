@@ -29,8 +29,14 @@ final class MainViewController: UIViewController {
         
         viewModel.viewDidLoad()
         viewModel.getUpcomingMovies(page: 1)
+        viewModel.getNowPlayingMovies(page: 1)
     }
+// MARK: - Status Bar Color
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+       return .lightContent
+   }
     
+// MARK: - Actions
     @objc
     private func pullToRefresh() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -43,7 +49,7 @@ final class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.movies.count
+        return viewModel.upcomingMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +59,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .none
-        cell.design(movie: viewModel.movies[indexPath.row])
+        cell.design(movie: viewModel.upcomingMovies[indexPath.row])
         
         return cell
         
@@ -68,7 +74,29 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         // to do
         let viewController = DetailViewController(nibName: "DetailView", bundle: nil)
         viewController.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(viewController, animated: true)
+        present(viewController, animated: true)
+    }
+}
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.nowPlayingMovies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = nowPlayingCollectionView.dequeueReusableCell(
+            withReuseIdentifier: CellIdentifiers.nowPlayingCell.rawValue,
+            for: indexPath) as? NowPlayingCollectionViewCell else { return UICollectionViewCell() }
+        
+        cell.design(movie: viewModel.nowPlayingMovies[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
     }
 }
 
@@ -87,12 +115,17 @@ extension MainViewController: MainViewProtocol {
     }
     
     func prepareCollectionView() {
-        
+        nowPlayingCollectionView.delegate = self
+        nowPlayingCollectionView.dataSource = self
+        nowPlayingCollectionView.register(UINib(nibName: "NowPlayingCollectionViewCell",
+                                                bundle: nil),
+                                          forCellWithReuseIdentifier: CellIdentifiers.nowPlayingCell.rawValue)
     }
     
     func dataRefreshed() {
         DispatchQueue.main.async {
             self.upcomingsTableView.reloadData()
+            self.nowPlayingCollectionView.reloadData()
         }
     }
     

@@ -24,8 +24,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="MovieList" customModuleProvider="target">
             <connections>
                 <outlet property="dateLabel" destination="laP-dZ-cvI" id="WIS-Pi-DnF"/>
+                <outlet property="overviewLabel" destination="Xl6-JF-9FA" id="QgB-Xy-tLb"/>
                 <outlet property="posterImageView" destination="TOK-Wq-06H" id="bGJ-Ce-hwf"/>
                 <outlet property="rateLabel" destination="Bvc-Ok-Pl1" id="4Te-0c-1C4"/>
+                <outlet property="titleLabel" destination="092-cR-eUC" id="p36-Py-9oe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

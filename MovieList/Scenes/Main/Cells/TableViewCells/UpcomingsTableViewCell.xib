@@ -22,7 +22,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="upcomingsCell" rowHeight="136" id="KGk-i7-Jjw" customClass="UpcomingsTableViewCell" customModule="MovieList" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="136"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="136"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -61,8 +61,8 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHY-AH-v0u">
                         <rect key="frame" x="267" y="104" width="68" height="16"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="16" id="O1v-rk-6ea"/>
-                            <constraint firstAttribute="width" constant="68" id="uJb-zZ-dvA"/>
+                            <constraint firstAttribute="height" constant="16" id="eSo-zK-v9r"/>
+                            <constraint firstAttribute="width" constant="68" id="kp5-M7-8qr"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="12"/>
                         <color key="textColor" name="TextGray"/>
@@ -70,17 +70,15 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ZHY-AH-v0u" firstAttribute="top" secondItem="K2y-8f-cih" secondAttribute="bottom" constant="16" id="KQG-tH-dEA"/>
+                    <constraint firstAttribute="trailing" secondItem="ZHY-AH-v0u" secondAttribute="trailing" constant="44" id="EDm-hO-FaE"/>
                     <constraint firstAttribute="trailing" secondItem="K2y-8f-cih" secondAttribute="trailing" constant="44" id="M5R-Wq-alr"/>
-                    <constraint firstAttribute="trailing" secondItem="ZHY-AH-v0u" secondAttribute="trailing" constant="44" id="Vnm-69-cOe"/>
                     <constraint firstItem="0Vl-Mc-igz" firstAttribute="leading" secondItem="rbi-yb-p95" secondAttribute="trailing" constant="8" id="X6w-je-VUf"/>
                     <constraint firstItem="K2y-8f-cih" firstAttribute="leading" secondItem="rbi-yb-p95" secondAttribute="trailing" constant="8" id="doW-xO-Oz2"/>
                     <constraint firstItem="rbi-yb-p95" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="e65-g7-2n7"/>
                     <constraint firstItem="K2y-8f-cih" firstAttribute="top" secondItem="0Vl-Mc-igz" secondAttribute="bottom" constant="8" id="fdP-h1-5yv"/>
                     <constraint firstAttribute="trailing" secondItem="0Vl-Mc-igz" secondAttribute="trailing" constant="44" id="gys-94-Ij0"/>
                     <constraint firstItem="rbi-yb-p95" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="mJr-2b-slu"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ZHY-AH-v0u" secondAttribute="bottom" constant="5" id="rVK-N9-U3Q"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ZHY-AH-v0u" secondAttribute="bottom" constant="16" id="x7D-ZE-I10"/>
+                    <constraint firstItem="ZHY-AH-v0u" firstAttribute="top" secondItem="K2y-8f-cih" secondAttribute="bottom" constant="16" id="oKb-nN-gzE"/>
                     <constraint firstItem="0Vl-Mc-igz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="xE0-14-13v"/>
                 </constraints>
             </tableViewCellContentView>

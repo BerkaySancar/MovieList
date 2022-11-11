@@ -9,7 +9,8 @@ import Foundation
 
 protocol MainViewModelProtocol {
     
-    var movies: [Movie] { get }
+    var upcomingMovies: [Movie] { get }
+    var nowPlayingMovies: [Movie] { get }
     
     func viewDidLoad()
     func getUpcomingMovies(page: Int)
@@ -21,13 +22,15 @@ final class MainViewModel: MainViewModelProtocol {
     private weak var view: MainViewProtocol?
     private let service: MovieServiceProtocol
     
-    var movies: [Movie] = []
+    private(set) var upcomingMovies: [Movie] = []
+    private(set) var nowPlayingMovies: [Movie] = []
     
     init(view: MainViewProtocol,
          service: MovieServiceProtocol = MovieService()) {
         self.view = view
         self.service = service
     }
+    
     func viewDidLoad() {
         view?.prepareTableView()
         view?.prepareCollectionView()
@@ -39,18 +42,27 @@ final class MainViewModel: MainViewModelProtocol {
             guard let self else { return }
             switch results {
             case .success(let movies):
-                self.movies = movies
+                self.upcomingMovies = movies
                 self.view?.dataRefreshed()
                 self.view?.setLoading(isLoading: false)
             case .failure(let error):
                 print(error)
             }
         }
-        
     }
     
     func getNowPlayingMovies(page: Int) {
-        
+        self.view?.setLoading(isLoading: true)
+        service.fetchNowPlayingMovies(page: page) { [weak self] results in
+            guard let self else { return }
+            switch results {
+            case .success(let movies):
+                self.nowPlayingMovies = movies
+                self.view?.dataRefreshed()
+                self.view?.setLoading(isLoading: false)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-  
 }

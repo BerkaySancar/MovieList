@@ -9,14 +9,17 @@ import Foundation
 
 enum MovieListEndpoints: ServiceEndpointProtocols {
     
-case upcomingMovies(page: Int)
-case nowPlayingMovies(page: Int)
+    case upcomingMovies(page: Int)
+    case nowPlayingMovies(page: Int)
+    case movieDetail(id: Int)
     
     var baseURLString: String {
         switch self {
         case .upcomingMovies:
             return "https://api.themoviedb.org/3/movie"
         case .nowPlayingMovies:
+            return "https://api.themoviedb.org/3/movie"
+        case .movieDetail:
             return "https://api.themoviedb.org/3/movie"
         }
     }
@@ -27,6 +30,8 @@ case nowPlayingMovies(page: Int)
             return "/upcoming?"
         case .nowPlayingMovies:
             return "/now_playing?"
+        case .movieDetail(let id):
+            return "\(id)?"
         }
     }
     
@@ -36,6 +41,8 @@ case nowPlayingMovies(page: Int)
             return "page=\(page)"
         case .nowPlayingMovies(let page):
             return "page=\(page)"
+        case .movieDetail:
+            return ""
         }
     }
     
@@ -45,6 +52,8 @@ case nowPlayingMovies(page: Int)
             return "GET"
         case .nowPlayingMovies:
             return "GET"
+        case .movieDetail:
+            return "GET"
         }
     }
     
@@ -53,6 +62,8 @@ case nowPlayingMovies(page: Int)
         case .upcomingMovies:
             return "&api_key=3d4171de9e5ec5cba7e23c76ec870a0a"
         case .nowPlayingMovies:
+            return "&api_key=3d4171de9e5ec5cba7e23c76ec870a0a"
+        case .movieDetail:
             return "&api_key=3d4171de9e5ec5cba7e23c76ec870a0a"
         }
     }

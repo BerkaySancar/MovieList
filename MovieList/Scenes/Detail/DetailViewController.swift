@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol DetailViewProtocol {
+protocol DetailViewProtocol: AnyObject {
     
+    func setLoading(isLoading: Bool)
 }
 
 final class DetailViewController: UIViewController {
@@ -16,6 +17,8 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var rateLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var overviewLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

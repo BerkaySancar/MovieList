@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B1163F0B291EDBE000418A6B /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1163F0A291EDBE000418A6B /* DetailViewModel.swift */; };
 		B1163F0D291EE30700418A6B /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1163F0C291EE30700418A6B /* SF-Pro-Text-Regular.otf */; };
+		B1163F10291EE65400418A6B /* NowPlayingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1163F0E291EE65400418A6B /* NowPlayingCollectionViewCell.swift */; };
+		B1163F11291EE65400418A6B /* NowPlayingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1163F0F291EE65400418A6B /* NowPlayingCollectionViewCell.xib */; };
 		B1C72DF4291E5B93007033A7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C72DF3291E5B93007033A7 /* UIViewController+Extensions.swift */; };
 		B1C72DF9291E6A54007033A7 /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1C72DF7291E6A54007033A7 /* SF-Pro-Text-Bold.otf */; };
 		B1C72DFA291E6A54007033A7 /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1C72DF8291E6A54007033A7 /* SF-Pro-Text-Medium.otf */; };
@@ -38,6 +40,8 @@
 		88BFB93A59466974708E290D /* Pods_MovieList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1163F0A291EDBE000418A6B /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		B1163F0C291EE30700418A6B /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		B1163F0E291EE65400418A6B /* NowPlayingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1163F0F291EE65400418A6B /* NowPlayingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1C72DF3291E5B93007033A7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		B1C72DF7291E6A54007033A7 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		B1C72DF8291E6A54007033A7 /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
@@ -227,8 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				B1C72DFC291E9387007033A7 /* DetailView.xib */,
-				B1C72DFB291E9387007033A7 /* DetailViewController.swift */,
 				B1163F0A291EDBE000418A6B /* DetailViewModel.swift */,
+				B1C72DFB291E9387007033A7 /* DetailViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -303,6 +307,8 @@
 		B1F84914291E47700088DF1F /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				B1163F0E291EE65400418A6B /* NowPlayingCollectionViewCell.swift */,
+				B1163F0F291EE65400418A6B /* NowPlayingCollectionViewCell.xib */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 				B1D61A73291E29EA00524124 /* Assets.xcassets in Resources */,
 				B1163F0D291EE30700418A6B /* SF-Pro-Text-Regular.otf in Resources */,
 				B1F84912291E47370088DF1F /* UpcomingsTableViewCell.xib in Resources */,
+				B1163F11291EE65400418A6B /* NowPlayingCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +466,7 @@
 				B1D61A6A291E29E900524124 /* AppDelegate.swift in Sources */,
 				B1D61A6C291E29E900524124 /* SceneDelegate.swift in Sources */,
 				B1F84905291E358A0088DF1F /* ServiceEndpointsProtocol.swift in Sources */,
+				B1163F10291EE65400418A6B /* NowPlayingCollectionViewCell.swift in Sources */,
 				B1C72DF4291E5B93007033A7 /* UIViewController+Extensions.swift in Sources */,
 				B1F84902291E35480088DF1F /* MovieListEndpoints.swift in Sources */,
 				B1F84907291E38930088DF1F /* ServiceManager.swift in Sources */,
@@ -612,6 +620,8 @@
 				INFOPLIST_FILE = MovieList/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -644,6 +654,8 @@
 				INFOPLIST_FILE = MovieList/Configuration/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
