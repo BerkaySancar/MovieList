@@ -16,6 +16,7 @@ struct BaseResponse: Codable {
 struct Movie: Codable {
     
     let id: Int
+    let imdbID: String?
     let title: String?
     let posterPath: String?
     let overview: String?
@@ -27,5 +28,6 @@ struct Movie: Codable {
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case voteAverage = "vote_average"
+        case imdbID = "imdb_id"
     }
 }

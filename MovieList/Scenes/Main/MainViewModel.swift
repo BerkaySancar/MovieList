@@ -43,7 +43,7 @@ final class MainViewModel: MainViewModelProtocol {
             switch results {
             case .success(let movies):
                 self.upcomingMovies = movies
-                self.view?.dataRefreshed()
+                self.view?.refreshTableView()
                 self.view?.setLoading(isLoading: false)
             case .failure(let error):
                 self.view?.onError(title: "Error!", message: error.localizedDescription)
@@ -58,7 +58,7 @@ final class MainViewModel: MainViewModelProtocol {
             switch results {
             case .success(let movies):
                 self.nowPlayingMovies = movies
-                self.view?.dataRefreshed()
+                self.view?.refreshCollectionView()
                 self.view?.setLoading(isLoading: false)
             case .failure(let error):
                 self.view?.onError(title: "Error!", message: error.localizedDescription)

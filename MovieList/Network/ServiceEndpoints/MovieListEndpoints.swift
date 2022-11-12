@@ -13,6 +13,7 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
     case nowPlayingMovies(page: Int)
     case movieDetail(id: Int)
     case imageUrl(posterPath: String)
+    case imdbWebsite(id: String)
     
     var baseURLString: String {
         switch self {
@@ -24,6 +25,8 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
             return "https://api.themoviedb.org/3/movie"
         case .imageUrl:
             return "https://image.tmdb.org/t/p/w500/"
+        case .imdbWebsite:
+            return "https://www.imdb.com"
         }
     }
     
@@ -37,6 +40,8 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
             return "/\(id)?"
         case .imageUrl(let posterPath):
             return "\(posterPath)"
+        case .imdbWebsite(let id):
+            return "/title/\(id)"
         }
     }
     
@@ -49,6 +54,8 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
         case .movieDetail:
             return ""
         case .imageUrl:
+            return ""
+        case .imdbWebsite:
             return ""
         }
     }
@@ -63,6 +70,8 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
             return "GET"
         case .imageUrl:
             return ""
+        case .imdbWebsite:
+            return ""
         }
     }
     
@@ -75,6 +84,8 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
         case .movieDetail:
             return "api_key=3d4171de9e5ec5cba7e23c76ec870a0a"
         case .imageUrl:
+            return ""
+        case .imdbWebsite:
             return ""
         }
     }

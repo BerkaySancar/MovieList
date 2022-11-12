@@ -15,7 +15,7 @@ protocol MovieServiceProtocol {
     func fetchMovieDetail(id: Int, completion: @escaping (Result<Movie, Error>) -> Void)
 }
 
-struct MovieService: MovieServiceProtocol {
+final class MovieService: MovieServiceProtocol {
     
     func fetchUpcomingMovies(page: Int, completion: @escaping (Result<[Movie], Error>) -> Void) {
         let url = MovieListEndpoints.upcomingMovies(page: page).url

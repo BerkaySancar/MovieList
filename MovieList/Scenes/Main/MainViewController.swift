@@ -9,9 +9,10 @@ import UIKit
 
 protocol MainViewProtocol: AnyObject {
     
-    func dataRefreshed()
     func prepareTableView()
     func prepareCollectionView()
+    func refreshTableView()
+    func refreshCollectionView()
     func setLoading(isLoading: Bool)
     func onError(title: String, message: String)
 }
@@ -60,7 +61,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.design(movie: viewModel.upcomingMovies[indexPath.row])
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -68,10 +68,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let detailVC = DetailViewController(movieID: viewModel.upcomingMovies[indexPath.row].id)
         detailVC.modalPresentationStyle = .fullScreen
-        show(detailVC, sender: nil)
+        present(detailVC, animated: true)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -84,7 +83,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - CollectionView Delegate & DataSource & Flowlayout
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.nowPlayingMovies.count
     }
@@ -120,10 +118,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let detailVC = DetailViewController(movieID: viewModel.nowPlayingMovies[indexPath.item].id)
         detailVC.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        present(detailVC, animated: true)
     }
 }
-
 // MARK: - View Protocol
 extension MainViewController: MainViewProtocol {
     
@@ -146,9 +143,14 @@ extension MainViewController: MainViewProtocol {
                                           forCellWithReuseIdentifier: CellIdentifiers.nowPlayingCell.rawValue)
     }
     
-    func dataRefreshed() {
+    func refreshTableView() {
         DispatchQueue.main.async {
             self.upcomingsTableView.reloadData()
+        }
+    }
+    
+    func refreshCollectionView() {
+        DispatchQueue.main.async {
             self.nowPlayingCollectionView.reloadData()
         }
     }
