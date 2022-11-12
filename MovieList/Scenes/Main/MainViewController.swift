@@ -13,12 +13,13 @@ protocol MainViewProtocol: AnyObject {
     func prepareCollectionView()
     func refreshTableView()
     func refreshCollectionView()
-    func setLoading(isLoading: Bool)
     func onError(title: String, message: String)
 }
 
 final class MainViewController: UIViewController {
     
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var nowPlayingCollectionView: UICollectionView!
     @IBOutlet private weak var upcomingsTableView: UITableView!
     @IBOutlet private weak var pageControl: UIPageControl!
@@ -38,7 +39,7 @@ final class MainViewController: UIViewController {
 // MARK: - Actions
     @objc
     private func pullToRefresh() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.viewModel.getUpcomingMovies(page: 1)
             self.upcomingsTableView.refreshControl?.endRefreshing()
         }
@@ -74,7 +75,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height {
+        if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height) {
             self.page += 1
             viewModel.getUpcomingMovies(page: page)
         }
@@ -154,11 +155,7 @@ extension MainViewController: MainViewProtocol {
             self.nowPlayingCollectionView.reloadData()
         }
     }
-    
-    func setLoading(isLoading: Bool) {
-        
-    }
-    
+   
     func onError(title: String, message: String) {
         self.errorMessage(titleInput: title, messageInput: message)
     }

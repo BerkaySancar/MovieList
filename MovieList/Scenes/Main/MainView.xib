@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="nowPlayingCollectionView" destination="OR9-np-vFZ" id="ltE-yI-o5N"/>
                 <outlet property="pageControl" destination="z7Q-xL-Acs" id="Dlm-zE-2Tt"/>
+                <outlet property="scrollView" destination="yA5-je-pMw" id="xQj-Y5-R2B"/>
+                <outlet property="stackView" destination="enJ-aR-O2h" id="2BS-Ey-wT7"/>
                 <outlet property="upcomingsTableView" destination="mte-yf-Muk" id="A2f-UM-YPw"/>
                 <outlet property="view" destination="5oP-7H-KV2" id="4iz-IG-yZV"/>
             </connections>
@@ -62,7 +64,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWH-aM-gmQ">
                                     <rect key="frame" x="0.0" y="316" width="393" height="700"/>
                                     <subviews>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mte-yf-Muk">
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mte-yf-Muk">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="700"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </tableView>

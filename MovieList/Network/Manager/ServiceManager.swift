@@ -24,7 +24,7 @@ extension ServiceManager {
         AF.request(url,
                    method: method,
                    encoding: JSONEncoding.default).validate().responseDecodable(of: T.self) { response in
-    
+            
             switch response.result {
             case .success(let data):
                 completion(.success(data))

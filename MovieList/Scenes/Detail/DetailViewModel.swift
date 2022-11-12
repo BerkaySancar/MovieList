@@ -37,7 +37,8 @@ final class DetailViewModel: DetailViewModelProtocol {
                 self.view?.setNavTitle(title: movie.title ?? "")
                 self.view?.showMovie(movie: movie)
             case .failure(let error):
-                self.view?.onError(title: "Error!", message: error.localizedDescription)
+                print(error)
+                self.view?.onError(title: "Error!", message: ServiceError.movieDetailError.rawValue)
             }
         }
     }

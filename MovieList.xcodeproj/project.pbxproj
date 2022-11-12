@@ -11,6 +11,7 @@
 		B1163F0D291EE30700418A6B /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1163F0C291EE30700418A6B /* SF-Pro-Text-Regular.otf */; };
 		B1163F10291EE65400418A6B /* NowPlayingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1163F0E291EE65400418A6B /* NowPlayingCollectionViewCell.swift */; };
 		B1163F11291EE65400418A6B /* NowPlayingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1163F0F291EE65400418A6B /* NowPlayingCollectionViewCell.xib */; };
+		B127AAD0291FCD71007E8F72 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127AACF291FCD71007E8F72 /* Error.swift */; };
 		B1C72DF4291E5B93007033A7 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C72DF3291E5B93007033A7 /* UIViewController+Extensions.swift */; };
 		B1C72DF9291E6A54007033A7 /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1C72DF7291E6A54007033A7 /* SF-Pro-Text-Bold.otf */; };
 		B1C72DFA291E6A54007033A7 /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1C72DF8291E6A54007033A7 /* SF-Pro-Text-Medium.otf */; };
@@ -42,6 +43,7 @@
 		B1163F0C291EE30700418A6B /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
 		B1163F0E291EE65400418A6B /* NowPlayingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1163F0F291EE65400418A6B /* NowPlayingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingCollectionViewCell.xib; sourceTree = "<group>"; };
+		B127AACF291FCD71007E8F72 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		B1C72DF3291E5B93007033A7 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		B1C72DF7291E6A54007033A7 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		B1C72DF8291E6A54007033A7 /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				B1F84916291E55FB0088DF1F /* CellIDs.swift */,
+				B127AACF291FCD71007E8F72 /* Error.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				B1F848FA291E339B0088DF1F /* MainViewController.swift in Sources */,
 				B1D61A6A291E29E900524124 /* AppDelegate.swift in Sources */,
 				B1D61A6C291E29E900524124 /* SceneDelegate.swift in Sources */,
+				B127AAD0291FCD71007E8F72 /* Error.swift in Sources */,
 				B1F84905291E358A0088DF1F /* ServiceEndpointsProtocol.swift in Sources */,
 				B1163F10291EE65400418A6B /* NowPlayingCollectionViewCell.swift in Sources */,
 				B1C72DF4291E5B93007033A7 /* UIViewController+Extensions.swift in Sources */,

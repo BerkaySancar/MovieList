@@ -81,7 +81,7 @@ extension DetailViewController: DetailViewProtocol {
         posterImageView.sd_setImage(with: url)
         titleLabel.text = movie.title ?? ""
         overviewLabel.text = movie.overview ?? ""
-        // MARK: To do
+      
         let dateFormatter1 = DateFormatter()
         dateFormatter1.dateFormat = "yyyy-MM-dd" // Format of API Date
         let dateFormatter2 = DateFormatter()

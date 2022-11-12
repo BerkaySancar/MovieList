@@ -37,31 +37,29 @@ final class MainViewModel: MainViewModelProtocol {
     }
     
     func getUpcomingMovies(page: Int) {
-        self.view?.setLoading(isLoading: true)
         service.fetchUpcomingMovies(page: page) { [weak self] results in
             guard let self else { return }
             switch results {
             case .success(let movies):
                 self.upcomingMovies = movies
                 self.view?.refreshTableView()
-                self.view?.setLoading(isLoading: false)
             case .failure(let error):
-                self.view?.onError(title: "Error!", message: error.localizedDescription)
+                print(error)
+                self.view?.onError(title: "Error!", message: ServiceError.upcomingFetchError.rawValue)
             }
         }
     }
     
     func getNowPlayingMovies(page: Int) {
-        self.view?.setLoading(isLoading: true)
         service.fetchNowPlayingMovies(page: page) { [weak self] results in
             guard let self else { return }
             switch results {
             case .success(let movies):
                 self.nowPlayingMovies = movies
                 self.view?.refreshCollectionView()
-                self.view?.setLoading(isLoading: false)
             case .failure(let error):
-                self.view?.onError(title: "Error!", message: error.localizedDescription)
+                print(error)
+                self.view?.onError(title: "Error!", message: ServiceError.nowPlayingFetchError.rawValue)
             }
         }
     }
