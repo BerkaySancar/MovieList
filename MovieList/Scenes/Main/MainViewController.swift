@@ -23,14 +23,15 @@ final class MainViewController: UIViewController {
     @IBOutlet private weak var pageControl: UIPageControl!
     
     private lazy var viewModel: MainViewModelProtocol = MainViewModel(view: self)
+    private var page: Int = 1
     
 // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.viewDidLoad()
-        viewModel.getUpcomingMovies(page: 1)
-        viewModel.getNowPlayingMovies(page: 1)
+        viewModel.getUpcomingMovies(page: page)
+        viewModel.getNowPlayingMovies(page: page)
     }
     
 // MARK: - Actions
@@ -68,9 +69,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let viewController = DetailViewController(movieID: viewModel.upcomingMovies[indexPath.row].id)
-        viewController.modalPresentationStyle = .fullScreen
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let detailVC = DetailViewController(movieID: viewModel.upcomingMovies[indexPath.row].id)
+        detailVC.modalPresentationStyle = .fullScreen
+        show(detailVC, sender: nil)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height {
+            self.page += 1
+            viewModel.getUpcomingMovies(page: page)
+        }
     }
 }
 

@@ -26,13 +26,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="enJ-aR-O2h">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="956"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1016"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0t-Ms-8fv">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="256"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="316"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="OR9-np-vFZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="256"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="316"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="omG-iW-qyO">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -42,7 +42,7 @@
                                             </collectionViewFlowLayout>
                                         </collectionView>
                                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="z7Q-xL-Acs">
-                                            <rect key="frame" x="138.66666666666666" y="232" width="115.66666666666666" height="8"/>
+                                            <rect key="frame" x="138.66666666666666" y="292" width="115.66666666666666" height="8"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="8" id="L53-Dq-TpI"/>
                                             </constraints>
@@ -50,17 +50,17 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="OR9-np-vFZ" firstAttribute="leading" secondItem="A0t-Ms-8fv" secondAttribute="leading" id="0Kx-a7-tCF"/>
-                                        <constraint firstAttribute="bottom" secondItem="OR9-np-vFZ" secondAttribute="bottom" id="7Q7-bk-rMl"/>
-                                        <constraint firstAttribute="height" constant="256" id="9Vq-LK-S5m"/>
+                                        <constraint firstItem="OR9-np-vFZ" firstAttribute="leading" secondItem="A0t-Ms-8fv" secondAttribute="leading" id="3oi-f0-Vcb"/>
+                                        <constraint firstAttribute="height" constant="316" id="9Vq-LK-S5m"/>
+                                        <constraint firstAttribute="bottom" secondItem="OR9-np-vFZ" secondAttribute="bottom" id="JvD-JH-ANf"/>
                                         <constraint firstAttribute="trailing" secondItem="OR9-np-vFZ" secondAttribute="trailing" id="Xdj-2L-T5q"/>
-                                        <constraint firstItem="OR9-np-vFZ" firstAttribute="top" secondItem="A0t-Ms-8fv" secondAttribute="top" id="dKI-Ws-bR1"/>
+                                        <constraint firstItem="OR9-np-vFZ" firstAttribute="top" secondItem="A0t-Ms-8fv" secondAttribute="top" id="atN-tZ-WQe"/>
                                         <constraint firstAttribute="bottom" secondItem="z7Q-xL-Acs" secondAttribute="bottom" constant="16" id="fu5-X0-OTt"/>
                                         <constraint firstItem="z7Q-xL-Acs" firstAttribute="centerX" secondItem="A0t-Ms-8fv" secondAttribute="centerX" id="n80-we-QWm"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWH-aM-gmQ">
-                                    <rect key="frame" x="0.0" y="256" width="393" height="700"/>
+                                    <rect key="frame" x="0.0" y="316" width="393" height="700"/>
                                     <subviews>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mte-yf-Muk">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="700"/>
@@ -77,6 +77,9 @@
                                     </constraints>
                                 </view>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="mte-yf-Muk" firstAttribute="top" secondItem="A0t-Ms-8fv" secondAttribute="bottom" id="7Zj-h4-XLv"/>
+                            </constraints>
                         </stackView>
                     </subviews>
                     <constraints>

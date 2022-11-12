@@ -11,6 +11,8 @@ protocol DetailViewProtocol: AnyObject {
     
     func setLoading(isLoading: Bool)
     func showMovie(movie: Movie)
+    func setNavTitle(title: String)
+    func onError(title: String, message: String)
 }
 
 final class DetailViewController: UIViewController {
@@ -20,10 +22,12 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var overviewLabel: UILabel!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private lazy var viewModel: DetailViewModelProtocol = DetailViewModel(view: self)
-    private(set) var movieID: Int?
+    private var movieID: Int!
     
+// MARK: - Init
     init(movieID: Int) {
         self.movieID = movieID
         super.init(nibName: "DetailView", bundle: nil)
@@ -33,18 +37,36 @@ final class DetailViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
+// MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        viewModel.viewDidLoad(id: movieID)
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .label
-        
-        viewModel.getMovieDetail(id: movieID ?? 0)
+    }
+    
+// MARK: - Actions
+    @IBAction private func backButtonTapped(_ sender: Any) {
+        let mainVC = MainViewController(nibName: "MainView", bundle: nil)
+        mainVC.modalPresentationStyle = .fullScreen
+        present(mainVC, animated: true)
     }
 }
-
+// MARK: - View Protocol
 extension DetailViewController: DetailViewProtocol {
     func setLoading(isLoading: Bool) {
+            if isLoading == false {
+                self.activityIndicator.isHidden = true
+                self.activityIndicator.stopAnimating()
+            } else {
+                self.activityIndicator.isHidden = false
+                self.activityIndicator.startAnimating()
+            }
+    }
+    
+    func setNavTitle(title: String) {
+        self.title = title
     }
     
     func showMovie(movie: Movie) {
@@ -61,5 +83,10 @@ extension DetailViewController: DetailViewProtocol {
         let date = dateFormatter1.date(from: movie.releaseDate ?? "") ?? Date()
         let desiredFormat = dateFormatter2.string(from: date)
         dateLabel.text = desiredFormat
+        rateLabel.text = String(movie.voteAverage ?? 0)
+    }
+    
+    func onError(title: String, message: String) {
+        self.errorMessage(titleInput: title, messageInput: message)
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 protocol DetailViewModelProtocol {
     
-    func getMovieDetail(id: Int)
+    func viewDidLoad(id: Int)
 }
 
 final class DetailViewModel: DetailViewModelProtocol {
@@ -23,17 +23,22 @@ final class DetailViewModel: DetailViewModelProtocol {
         self.service = service
     }
     
-    func getMovieDetail(id: Int) {
+    private func getMovieDetail(id: Int) {
         self.view?.setLoading(isLoading: true)
         service.fetchMovieDetail(id: id) { [weak self] results in
             guard let self else { return }
             switch results {
             case .success(let movie):
                 self.view?.setLoading(isLoading: false)
+                self.view?.setNavTitle(title: movie.title ?? "")
                 self.view?.showMovie(movie: movie)
             case .failure(let error):
-                print(error)
+                self.view?.onError(title: "Error!", message: error.localizedDescription)
             }
         }
+    }
+    
+    func viewDidLoad(id: Int) {
+        getMovieDetail(id: id)
     }
 }
