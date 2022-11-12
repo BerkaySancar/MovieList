@@ -31,11 +31,10 @@ final class MainViewController: UIViewController {
         viewModel.getUpcomingMovies(page: 1)
         viewModel.getNowPlayingMovies(page: 1)
     }
-// MARK: - Status Bar Color
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-       return .lightContent
-   }
-    
+ // MARK: - Status Bar Color
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//       return .darkContent
+//   }
 // MARK: - Actions
     @objc
     private func pullToRefresh() {
