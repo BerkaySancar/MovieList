@@ -20,6 +20,7 @@ final class MainViewController: UIViewController {
     
     @IBOutlet private weak var nowPlayingCollectionView: UICollectionView!
     @IBOutlet private weak var upcomingsTableView: UITableView!
+    @IBOutlet private weak var pageControl: UIPageControl!
     
     private lazy var viewModel: MainViewModelProtocol = MainViewModel(view: self)
     
@@ -31,10 +32,7 @@ final class MainViewController: UIViewController {
         viewModel.getUpcomingMovies(page: 1)
         viewModel.getNowPlayingMovies(page: 1)
     }
- // MARK: - Status Bar Color
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//       return .darkContent
-//   }
+    
 // MARK: - Actions
     @objc
     private func pullToRefresh() {
@@ -77,6 +75,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - CollectionView Delegate & DataSource & Flowlayout
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -96,6 +95,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout
+                        collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 
@@ -119,6 +129,8 @@ extension MainViewController: MainViewProtocol {
         nowPlayingCollectionView.register(UINib(nibName: "NowPlayingCollectionViewCell",
                                                 bundle: nil),
                                           forCellWithReuseIdentifier: CellIdentifiers.nowPlayingCell.rawValue)
+        
+        pageControl.numberOfPages = 20
     }
     
     func dataRefreshed() {
