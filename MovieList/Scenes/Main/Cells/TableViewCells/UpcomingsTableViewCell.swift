@@ -27,9 +27,8 @@ final class UpcomingsTableViewCell: UITableViewCell {
     //    }
     
     func design(movie: Movie) {
-        if let url = URL(string: "https://image.tmdb.org/t/p/w500/\(movie.posterPath ?? "")") {
-            posterImageView.sd_setImage(with: url)
-        }
+        let url = URL(string: MovieListEndpoints.imageUrl(posterPath: movie.posterPath ?? "").url)
+        posterImageView.sd_setImage(with: url)
         titleLabel.text = movie.title
         overviewLabel.text = movie.overview
         

@@ -9,16 +9,13 @@ import Foundation
 
 protocol DetailViewModelProtocol {
     
-    var movie: Movie? { get }
-    
+    func getMovieDetail(id: Int)
 }
 
 final class DetailViewModel: DetailViewModelProtocol {
     
     private weak var view: DetailViewProtocol?
     private let service: MovieServiceProtocol
-    
-    var movie: Movie?
     
     init(view: DetailViewProtocol,
          service: MovieServiceProtocol = MovieService()) {
@@ -32,8 +29,8 @@ final class DetailViewModel: DetailViewModelProtocol {
             guard let self else { return }
             switch results {
             case .success(let movie):
-                self.movie = movie
                 self.view?.setLoading(isLoading: false)
+                self.view?.showMovie(movie: movie)
             case .failure(let error):
                 print(error)
             }

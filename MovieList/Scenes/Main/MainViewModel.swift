@@ -46,7 +46,7 @@ final class MainViewModel: MainViewModelProtocol {
                 self.view?.dataRefreshed()
                 self.view?.setLoading(isLoading: false)
             case .failure(let error):
-                print(error)
+                self.view?.onError(title: "Error!", message: error.localizedDescription)
             }
         }
     }
@@ -61,7 +61,7 @@ final class MainViewModel: MainViewModelProtocol {
                 self.view?.dataRefreshed()
                 self.view?.setLoading(isLoading: false)
             case .failure(let error):
-                print(error)
+                self.view?.onError(title: "Error!", message: error.localizedDescription)
             }
         }
     }

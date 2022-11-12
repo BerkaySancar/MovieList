@@ -68,10 +68,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // to do
-        let viewController = DetailViewController(nibName: "DetailView", bundle: nil)
+        let viewController = DetailViewController(movieID: viewModel.upcomingMovies[indexPath.row].id)
         viewController.modalPresentationStyle = .fullScreen
-        present(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
@@ -88,13 +87,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             for: indexPath) as? NowPlayingCollectionViewCell else { return UICollectionViewCell() }
         
         cell.design(movie: viewModel.nowPlayingMovies[indexPath.row])
+        pageControl.numberOfPages = viewModel.nowPlayingMovies.count
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -106,6 +106,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailVC = DetailViewController(movieID: viewModel.nowPlayingMovies[indexPath.item].id)
+        detailVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
@@ -129,8 +136,6 @@ extension MainViewController: MainViewProtocol {
         nowPlayingCollectionView.register(UINib(nibName: "NowPlayingCollectionViewCell",
                                                 bundle: nil),
                                           forCellWithReuseIdentifier: CellIdentifiers.nowPlayingCell.rawValue)
-        
-        pageControl.numberOfPages = 20
     }
     
     func dataRefreshed() {
@@ -145,6 +150,6 @@ extension MainViewController: MainViewProtocol {
     }
     
     func onError(title: String, message: String) {
-        
+        self.errorMessage(titleInput: title, messageInput: message)
     }
 }

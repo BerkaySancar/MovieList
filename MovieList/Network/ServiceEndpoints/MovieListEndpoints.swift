@@ -12,6 +12,7 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
     case upcomingMovies(page: Int)
     case nowPlayingMovies(page: Int)
     case movieDetail(id: Int)
+    case imageUrl(posterPath: String)
     
     var baseURLString: String {
         switch self {
@@ -21,6 +22,8 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
             return "https://api.themoviedb.org/3/movie"
         case .movieDetail:
             return "https://api.themoviedb.org/3/movie"
+        case .imageUrl:
+            return "https://image.tmdb.org/t/p/w500/"
         }
     }
     
@@ -31,7 +34,9 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
         case .nowPlayingMovies:
             return "/now_playing?"
         case .movieDetail(let id):
-            return "\(id)?"
+            return "/\(id)?"
+        case .imageUrl(let posterPath):
+            return "\(posterPath)"
         }
     }
     
@@ -42,6 +47,8 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
         case .nowPlayingMovies(let page):
             return "page=\(page)"
         case .movieDetail:
+            return ""
+        case .imageUrl:
             return ""
         }
     }
@@ -54,6 +61,8 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
             return "GET"
         case .movieDetail:
             return "GET"
+        case .imageUrl:
+            return ""
         }
     }
     
@@ -64,7 +73,9 @@ enum MovieListEndpoints: ServiceEndpointProtocols {
         case .nowPlayingMovies:
             return "&api_key=3d4171de9e5ec5cba7e23c76ec870a0a"
         case .movieDetail:
-            return "&api_key=3d4171de9e5ec5cba7e23c76ec870a0a"
+            return "api_key=3d4171de9e5ec5cba7e23c76ec870a0a"
+        case .imageUrl:
+            return ""
         }
     }
 }

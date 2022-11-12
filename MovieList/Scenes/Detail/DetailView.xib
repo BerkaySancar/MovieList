@@ -36,16 +36,16 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qh-XH-QST">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qh-XH-QST">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DqS-w3-YEy">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="704.33333333333337"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="850"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfL-7a-rKR">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="704.33333333333337"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="850"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TOK-Wq-06H">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TOK-Wq-06H">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="256"/>
                                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -95,9 +95,9 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.06.2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laP-dZ-cvI">
-                                            <rect key="frame" x="152" y="275" width="69" height="18"/>
+                                            <rect key="frame" x="152" y="275" width="75" height="18"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="69" id="6IY-fl-IFj"/>
+                                                <constraint firstAttribute="width" constant="75" id="6IY-fl-IFj"/>
                                                 <constraint firstAttribute="height" constant="18" id="6Rt-Sq-dvm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
@@ -116,7 +116,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-JF-9FA">
                                             <rect key="frame" x="16" y="352" width="361" height="322.33333333333326"/>
-                                            <mutableString key="text">Moonrise Kingdom is a 2012 American coming-of-age comedy-drama film directed by Wes Anderson, written by Anderson and Roman Coppola. It features an ensemble cast including Bruce Willis, Edward Norton, Bill Murray, Frances McDormand, Tilda Swinton, Jason Schwartzman, Bob Balaban, Harvey Keitel, and newcomers Jared Gilman and Kara Hayward. Largely set on the fictional New England island of New Penzance, it tells the story of an orphan boy (Gilman) who escapes from a scouting camp to unite with his pen pal and love interest, a girl with aggressive tendencies (Hayward). Feeling alienated from their guardians and shunned by their peers, the lovers abscond to an isolated beach. Meanwhile, the island's police captain (Willis) organizes a search party of scouts and family members to locate the runaways.</mutableString>
+                                            <string key="text">Moonrise Kingdom is a 2012 American coming-of-age comedy-drama film directed by Wes Anderson, written by Anderson and Roman Coppola. It features an ensemble cast including Bruce Willis, Edward Norton, Bill Murray, Frances McDormand, Tilda Swinton, Jason Schwartzman, Bob Balaban, Harvey Keitel, and newcomers Jared Gilman and Kara Hayward. Largely set on the fictional New England island of New Penzance, it tells the story of an orphan boy (Gilman) who escapes from a scouting camp to unite with his pen pal and love interest, a girl with aggressive tendencies (Hayward). Feeling alienated from their guardians and shunned by their peers, the lovers abscond to an isolated beach. Meanwhile, the island's police captain (Willis) organizes a search party of scouts and family members to locate the runaways.</string>
                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -137,12 +137,12 @@
                                         <constraint firstItem="wgv-PF-Xf0" firstAttribute="leading" secondItem="Bvc-Ok-Pl1" secondAttribute="trailing" id="YkS-Wb-GaZ"/>
                                         <constraint firstItem="c9w-dD-FO6" firstAttribute="leading" secondItem="b3M-rO-F16" secondAttribute="trailing" constant="8" id="dCF-3U-l5a"/>
                                         <constraint firstItem="092-cR-eUC" firstAttribute="leading" secondItem="qfL-7a-rKR" secondAttribute="leading" constant="16" id="ejZ-13-7NF"/>
+                                        <constraint firstAttribute="height" constant="850" id="gzM-uu-a7q"/>
                                         <constraint firstItem="Bvc-Ok-Pl1" firstAttribute="leading" secondItem="c9w-dD-FO6" secondAttribute="trailing" constant="4" id="i4Z-k3-uZ5"/>
                                         <constraint firstItem="wgv-PF-Xf0" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="19" id="ixf-d8-Em5"/>
                                         <constraint firstItem="TOK-Wq-06H" firstAttribute="leading" secondItem="qfL-7a-rKR" secondAttribute="leading" id="mpb-F4-ZjG"/>
                                         <constraint firstItem="Xl6-JF-9FA" firstAttribute="top" secondItem="092-cR-eUC" secondAttribute="bottom" constant="16" id="nJi-OU-zjx"/>
                                         <constraint firstItem="b3M-rO-F16" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="16" id="o7F-RC-0aY"/>
-                                        <constraint firstAttribute="bottom" secondItem="Xl6-JF-9FA" secondAttribute="bottom" constant="30" id="qjs-2w-okW"/>
                                         <constraint firstItem="Xl6-JF-9FA" firstAttribute="leading" secondItem="qfL-7a-rKR" secondAttribute="leading" constant="16" id="rcN-Zd-4W2"/>
                                         <constraint firstItem="TOK-Wq-06H" firstAttribute="top" secondItem="qfL-7a-rKR" secondAttribute="top" id="w5y-7l-hi6"/>
                                     </constraints>
