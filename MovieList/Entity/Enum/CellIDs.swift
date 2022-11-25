@@ -9,6 +9,7 @@ import Foundation
 
 enum CellIdentifiers: String {
     
-    case upcomingsCell = "upcomingsCell"
-    case nowPlayingCell = "nowPlayingsCell"
+    case upcomingsTVCell = "upcomingsTableViewCell"
+    case nowPlayingsTVCell = "nowPlayingsTableViewCell"
+    case nowPlayingsCVCell = "nowPlayingsCollectionViewCell"
 }

@@ -25,11 +25,11 @@ final class DetailViewController: UIViewController {
     @IBOutlet private weak var overviewLabel: UILabel!
     @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var navTitleLabel: UILabel!
-
+    
     private lazy var viewModel: DetailViewModelProtocol = DetailViewModel(view: self)
     private var movieID: Int!
     
-// MARK: - Init
+    // MARK: - Init
     init(movieID: Int) {
         self.movieID = movieID
         super.init(nibName: "DetailView", bundle: nil)
@@ -38,14 +38,14 @@ final class DetailViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-// MARK: - Life Cycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.viewDidLoad(id: movieID)
         self.navigationController?.navigationBar.tintColor = .label
     }
-// MARK: - Actions
+    // MARK: - Actions
     @IBAction private func backButtonTapped(_ sender: Any) {
         let mainVC = MainViewController(nibName: "MainView", bundle: nil)
         mainVC.modalPresentationStyle = .fullScreen
@@ -81,12 +81,12 @@ extension DetailViewController: DetailViewProtocol {
         posterImageView.sd_setImage(with: url)
         titleLabel.text = movie.title ?? ""
         overviewLabel.text = movie.overview ?? ""
-      
+        
         let dateFormatter1 = DateFormatter()
         dateFormatter1.dateFormat = "yyyy-MM-dd" // Format of API Date
         let dateFormatter2 = DateFormatter()
         dateFormatter2.dateFormat = "dd.MM.yyyy" // Desired Format
-
+        
         let date = dateFormatter1.date(from: movie.releaseDate ?? "") ?? Date()
         let desiredFormat = dateFormatter2.string(from: date)
         dateLabel.text = desiredFormat

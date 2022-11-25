@@ -14,11 +14,6 @@ final class NowPlayingCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var overviewLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func design(movie: Movie) {
         let url = URL(string: MovieListEndpoints.imageUrl(posterPath: movie.posterPath ?? "").url)
         posterImageView.sd_setImage(with: url)

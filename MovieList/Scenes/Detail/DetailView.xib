@@ -48,74 +48,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="850"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TOK-Wq-06H">
-                                            <rect key="frame" x="0.0" y="43" width="393" height="256"/>
+                                            <rect key="frame" x="0.0" y="43" width="393" height="314"/>
                                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="256" id="CoT-wa-oFM"/>
                                                 <constraint firstAttribute="width" constant="393" id="E2E-7s-xmf"/>
+                                                <constraint firstAttribute="height" constant="314" id="msp-uC-Fpw"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rateLogo" translatesAutoresizingMaskIntoConstraints="NO" id="c9w-dD-FO6">
-                                            <rect key="frame" x="73" y="319" width="16" height="16"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="16" id="Jpt-Mg-mCa"/>
-                                                <constraint firstAttribute="height" constant="16" id="v0a-ON-yfO"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvc-Ok-Pl1">
-                                            <rect key="frame" x="93" y="318" width="18.666666666666671" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="18" id="6Bm-01-vDM"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgv-PF-Xf0">
-                                            <rect key="frame" x="112.66666666666667" y="318" width="19.000000000000014" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="18" id="SvG-sj-lpP"/>
-                                                <constraint firstAttribute="width" constant="19" id="xdL-6L-tUn"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
-                                            <color key="textColor" name="DarkGray"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TzT-AW-Rjf">
-                                            <rect key="frame" x="140.66666666666666" y="325" width="4" height="2.6666666666666856"/>
-                                            <color key="tintColor" name="YellowDot"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="4" id="Rb9-WI-CiJ"/>
-                                                <constraint firstAttribute="height" constant="4" id="gbk-6S-Cyj"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.06.2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laP-dZ-cvI">
-                                            <rect key="frame" x="152.66666666666666" y="318" width="75" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="75" id="JIG-6i-HCI"/>
-                                                <constraint firstAttribute="height" constant="18" id="VV9-sa-w7A"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moonrise Kingdom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="092-cR-eUC">
-                                            <rect key="frame" x="16" y="355" width="343" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="343" id="8ge-15-yiF"/>
-                                                <constraint firstAttribute="height" constant="24" id="KzU-ib-TCF"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-JF-9FA">
-                                            <rect key="frame" x="16" y="395" width="361" height="322.33333333333326"/>
-                                            <string key="text">Moonrise Kingdom is a 2012 American coming-of-age comedy-drama film directed by Wes Anderson, written by Anderson and Roman Coppola. It features an ensemble cast including Bruce Willis, Edward Norton, Bill Murray, Frances McDormand, Tilda Swinton, Jason Schwartzman, Bob Balaban, Harvey Keitel, and newcomers Jared Gilman and Kara Hayward. Largely set on the fictional New England island of New Penzance, it tells the story of an orphan boy (Gilman) who escapes from a scouting camp to unite with his pen pal and love interest, a girl with aggressive tendencies (Hayward). Feeling alienated from their guardians and shunned by their peers, the lovers abscond to an isolated beach. Meanwhile, the island's police captain (Willis) organizes a search party of scouts and family members to locate the runaways.</string>
-                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk8-3o-NKC">
                                             <rect key="frame" x="16" y="13" width="10" height="14"/>
                                             <constraints>
@@ -141,8 +80,69 @@
                                                 <constraint firstAttribute="width" constant="20" id="bgN-f7-J5T"/>
                                             </constraints>
                                         </activityIndicatorView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rateLogo" translatesAutoresizingMaskIntoConstraints="NO" id="c9w-dD-FO6">
+                                            <rect key="frame" x="73" y="369" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="16" id="Jpt-Mg-mCa"/>
+                                                <constraint firstAttribute="height" constant="16" id="v0a-ON-yfO"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvc-Ok-Pl1">
+                                            <rect key="frame" x="93" y="368" width="18.666666666666671" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="6Bm-01-vDM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgv-PF-Xf0">
+                                            <rect key="frame" x="112.66666666666667" y="368" width="19.000000000000014" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="SvG-sj-lpP"/>
+                                                <constraint firstAttribute="width" constant="19" id="xdL-6L-tUn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
+                                            <color key="textColor" name="DarkGray"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TzT-AW-Rjf">
+                                            <rect key="frame" x="140.66666666666666" y="375" width="4" height="2.6666666666666856"/>
+                                            <color key="tintColor" name="YellowDot"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="4" id="Rb9-WI-CiJ"/>
+                                                <constraint firstAttribute="height" constant="4" id="gbk-6S-Cyj"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.06.2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laP-dZ-cvI">
+                                            <rect key="frame" x="152.66666666666666" y="368" width="75" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="JIG-6i-HCI"/>
+                                                <constraint firstAttribute="height" constant="18" id="VV9-sa-w7A"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SFProText-Medium" family="SF Pro Text" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moonrise Kingdom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="092-cR-eUC">
+                                            <rect key="frame" x="16" y="405" width="343" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="343" id="8ge-15-yiF"/>
+                                                <constraint firstAttribute="height" constant="24" id="KzU-ib-TCF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SFProText-Bold" family="SF Pro Text" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl6-JF-9FA">
+                                            <rect key="frame" x="16" y="445" width="361" height="322.33333333333326"/>
+                                            <string key="text">Moonrise Kingdom is a 2012 American coming-of-age comedy-drama film directed by Wes Anderson, written by Anderson and Roman Coppola. It features an ensemble cast including Bruce Willis, Edward Norton, Bill Murray, Frances McDormand, Tilda Swinton, Jason Schwartzman, Bob Balaban, Harvey Keitel, and newcomers Jared Gilman and Kara Hayward. Largely set on the fictional New England island of New Penzance, it tells the story of an orphan boy (Gilman) who escapes from a scouting camp to unite with his pen pal and love interest, a girl with aggressive tendencies (Hayward). Feeling alienated from their guardians and shunned by their peers, the lovers abscond to an isolated beach. Meanwhile, the island's police captain (Willis) organizes a search party of scouts and family members to locate the runaways.</string>
+                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NZ1-6d-RJM">
-                                            <rect key="frame" x="16" y="315" width="49" height="24"/>
+                                            <rect key="frame" x="16" y="365" width="49" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="49" id="Vix-vI-5fq"/>
                                                 <constraint firstAttribute="height" constant="24" id="ZOu-JQ-yrj"/>
@@ -163,24 +163,24 @@
                                         <constraint firstItem="wgv-PF-Xf0" firstAttribute="leading" secondItem="Bvc-Ok-Pl1" secondAttribute="trailing" constant="1" id="A3k-sJ-VwZ"/>
                                         <constraint firstItem="c9w-dD-FO6" firstAttribute="leading" secondItem="NZ1-6d-RJM" secondAttribute="trailing" constant="8" symbolic="YES" id="BR9-o2-Oej"/>
                                         <constraint firstItem="Qk8-3o-NKC" firstAttribute="leading" secondItem="qfL-7a-rKR" secondAttribute="leading" constant="16" id="Bj6-IL-S5K"/>
-                                        <constraint firstItem="TzT-AW-Rjf" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="25" id="CFz-bk-9h3"/>
+                                        <constraint firstItem="TzT-AW-Rjf" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="17" id="CFz-bk-9h3"/>
                                         <constraint firstAttribute="trailing" secondItem="8Pi-tT-OmO" secondAttribute="trailing" constant="16" id="LM6-3a-9J1"/>
                                         <constraint firstItem="L61-p4-x79" firstAttribute="top" secondItem="qfL-7a-rKR" secondAttribute="top" constant="9" id="MIF-EI-RKR"/>
                                         <constraint firstItem="TOK-Wq-06H" firstAttribute="top" secondItem="qfL-7a-rKR" secondAttribute="top" constant="43" id="OyS-x8-Ny6"/>
-                                        <constraint firstItem="c9w-dD-FO6" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="20" id="PAw-B0-AS6"/>
+                                        <constraint firstItem="c9w-dD-FO6" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="12" id="PAw-B0-AS6"/>
                                         <constraint firstItem="092-cR-eUC" firstAttribute="leading" secondItem="qfL-7a-rKR" secondAttribute="leading" constant="16" id="YHu-4z-BrT"/>
                                         <constraint firstItem="Qk8-3o-NKC" firstAttribute="top" secondItem="qfL-7a-rKR" secondAttribute="top" constant="13" id="YOY-GA-08k"/>
                                         <constraint firstItem="Xl6-JF-9FA" firstAttribute="top" secondItem="092-cR-eUC" secondAttribute="bottom" constant="16" id="YhV-9k-g2a"/>
                                         <constraint firstItem="Xl6-JF-9FA" firstAttribute="leading" secondItem="qfL-7a-rKR" secondAttribute="leading" constant="16" id="ZGe-hO-fgT"/>
                                         <constraint firstItem="TzT-AW-Rjf" firstAttribute="leading" secondItem="wgv-PF-Xf0" secondAttribute="trailing" constant="9" id="aSJ-MF-ZaJ"/>
-                                        <constraint firstItem="Bvc-Ok-Pl1" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="19" id="bDt-eg-NSx"/>
+                                        <constraint firstItem="Bvc-Ok-Pl1" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="11" id="bDt-eg-NSx"/>
                                         <constraint firstItem="TOK-Wq-06H" firstAttribute="leading" secondItem="qfL-7a-rKR" secondAttribute="leading" id="ctC-2Z-0yX"/>
                                         <constraint firstItem="8Pi-tT-OmO" firstAttribute="leading" secondItem="L61-p4-x79" secondAttribute="trailing" constant="8" id="fwX-yM-LNm"/>
                                         <constraint firstItem="Bvc-Ok-Pl1" firstAttribute="leading" secondItem="c9w-dD-FO6" secondAttribute="trailing" constant="4" id="hNX-ts-s3v"/>
-                                        <constraint firstItem="NZ1-6d-RJM" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="16" id="hgo-sM-9cP"/>
+                                        <constraint firstItem="NZ1-6d-RJM" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="8" id="hgo-sM-9cP"/>
                                         <constraint firstAttribute="trailing" secondItem="TOK-Wq-06H" secondAttribute="trailing" id="l0o-6t-715"/>
-                                        <constraint firstItem="laP-dZ-cvI" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="19" id="lfn-Kq-V9v"/>
-                                        <constraint firstItem="wgv-PF-Xf0" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="19" id="quk-XX-6bY"/>
+                                        <constraint firstItem="laP-dZ-cvI" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="11" id="lfn-Kq-V9v"/>
+                                        <constraint firstItem="wgv-PF-Xf0" firstAttribute="top" secondItem="TOK-Wq-06H" secondAttribute="bottom" constant="11" id="quk-XX-6bY"/>
                                         <constraint firstAttribute="height" constant="850" id="s4y-Kv-rUP"/>
                                         <constraint firstItem="8Pi-tT-OmO" firstAttribute="top" secondItem="qfL-7a-rKR" secondAttribute="top" constant="10" id="w7L-UY-b19"/>
                                         <constraint firstItem="laP-dZ-cvI" firstAttribute="leading" secondItem="TzT-AW-Rjf" secondAttribute="trailing" constant="8" symbolic="YES" id="z10-ND-AhN"/>

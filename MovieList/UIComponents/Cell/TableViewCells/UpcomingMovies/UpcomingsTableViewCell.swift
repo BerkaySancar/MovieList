@@ -15,24 +15,12 @@ final class UpcomingsTableViewCell: UITableViewCell {
     @IBOutlet private weak var overviewLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     
-    //        override func awakeFromNib() {
-    //        super.awakeFromNib()
-    //        // Initialization code
-    //    }
-    //
-    //    override func setSelected(_ selected: Bool, animated: Bool) {
-    //        super.setSelected(selected, animated: animated)
-    //
-    //        // Configure the view for the selected state
-    //    }
-    
     func design(movie: Movie) {
         let url = URL(string: MovieListEndpoints.imageUrl(posterPath: movie.posterPath ?? "").url)
         posterImageView.sd_setImage(with: url)
         titleLabel.text = movie.title
         overviewLabel.text = movie.overview
         
-        // MARK: To Do
         let dateFormatter1 = DateFormatter()
         dateFormatter1.dateFormat = "yyyy-MM-dd" // Format of API Date
         let dateFormatter2 = DateFormatter()

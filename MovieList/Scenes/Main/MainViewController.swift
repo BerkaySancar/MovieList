@@ -10,62 +10,87 @@ import UIKit
 protocol MainViewProtocol: AnyObject {
     
     func prepareTableView()
-    func prepareCollectionView()
     func refreshTableView()
-    func refreshCollectionView()
     func onError(title: String, message: String)
+    func setLoading(isLoading: Bool)
+}
+
+protocol NowPlayingCollectionViewTableViewCellDelegate: AnyObject {
+    
+    func didTapMovie(id: Int)
 }
 
 final class MainViewController: UIViewController {
     
-    @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var stackView: UIStackView!
-    @IBOutlet private weak var nowPlayingCollectionView: UICollectionView!
-    @IBOutlet private weak var upcomingsTableView: UITableView!
-    @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet private weak var mainTableView: UITableView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     private lazy var viewModel: MainViewModelProtocol = MainViewModel(view: self)
-    private var page: Int = 1
     
-// MARK: - Life Cycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.viewDidLoad()
-        viewModel.getUpcomingMovies(page: page)
-        viewModel.getNowPlayingMovies(page: page)
     }
     
-// MARK: - Actions
+    // MARK: - Actions
     @objc
     private func pullToRefresh() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.viewModel.getUpcomingMovies(page: 1)
-            self.upcomingsTableView.refreshControl?.endRefreshing()
+            self.viewModel.getNowPlayingMovies(page: 1)
+            self.mainTableView.refreshControl?.endRefreshing()
         }
     }
 }
 // MARK: - TableView Delegate & DataSource
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.upcomingMovies.count
+        if section == 0 {
+            return 1
+        } else {
+            return viewModel.upcomingMovies.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = upcomingsTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.upcomingsCell.rawValue,
-                                                                for: indexPath) as? UpcomingsTableViewCell
-        else { return UITableViewCell()}
-        
-        cell.accessoryType = .disclosureIndicator
-        cell.selectionStyle = .none
-        cell.design(movie: viewModel.upcomingMovies[indexPath.row])
-        
-        return cell
+        switch indexPath.section {
+        case 0:
+            guard let cell = mainTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.nowPlayingsTVCell.rawValue,
+                                                               for: indexPath) as? NowPlayingsTableViewCell
+            else { return UITableViewCell()}
+            
+            cell.delegate = self
+            cell.configure(movies: viewModel.nowPlayingMovies)
+            return cell
+            
+        case 1:
+            guard let cell = mainTableView.dequeueReusableCell(withIdentifier: CellIdentifiers.upcomingsTVCell.rawValue,
+                                                               for: indexPath) as? UpcomingsTableViewCell
+            else { return UITableViewCell()}
+            
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .none
+            cell.design(movie: viewModel.upcomingMovies[indexPath.row])
+            return cell
+            
+        default:
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 136
+        if indexPath.section == 0 {
+            return self.view.frame.height / 2.5
+        } else {
+            return 136
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -74,89 +99,60 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         present(detailVC, animated: true)
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height) {
-            self.page += 1
-            viewModel.getUpcomingMovies(page: page)
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        viewModel.isScrolling = false
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if mainTableView.contentOffset.y + mainTableView.frame.size.height >= mainTableView.contentSize.height {
+            viewModel.loadMoreMovies()
         }
     }
 }
 
-// MARK: - CollectionView Delegate & DataSource & Flowlayout
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.nowPlayingMovies.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = nowPlayingCollectionView.dequeueReusableCell(
-            withReuseIdentifier: CellIdentifiers.nowPlayingCell.rawValue,
-            for: indexPath) as? NowPlayingCollectionViewCell else { return UICollectionViewCell() }
-        
-        cell.design(movie: viewModel.nowPlayingMovies[indexPath.row])
-        pageControl.numberOfPages = viewModel.nowPlayingMovies.count
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        pageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout
-                        collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let detailVC = DetailViewController(movieID: viewModel.nowPlayingMovies[indexPath.item].id)
-        detailVC.modalPresentationStyle = .fullScreen
-        present(detailVC, animated: true)
-    }
-}
 // MARK: - View Protocol
 extension MainViewController: MainViewProtocol {
     
     func prepareTableView() {
-        upcomingsTableView.delegate = self
-        upcomingsTableView.dataSource = self
-        upcomingsTableView.register(UINib(nibName: "UpcomingsTableViewCell", bundle: nil),
-                                    forCellReuseIdentifier: CellIdentifiers.upcomingsCell.rawValue)
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        mainTableView.register(UINib(nibName: "UpcomingsTableViewCell", bundle: nil),
+                               forCellReuseIdentifier: CellIdentifiers.upcomingsTVCell.rawValue)
+        mainTableView.register(UINib(nibName: "NowPlayingsTableViewCell",
+                                     bundle: nil),
+                               forCellReuseIdentifier: CellIdentifiers.nowPlayingsTVCell.rawValue)
         
         let refreshControl = UIRefreshControl()
-        upcomingsTableView.refreshControl = refreshControl
+        mainTableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
-    }
-    
-    func prepareCollectionView() {
-        nowPlayingCollectionView.delegate = self
-        nowPlayingCollectionView.dataSource = self
-        nowPlayingCollectionView.register(UINib(nibName: "NowPlayingCollectionViewCell",
-                                                bundle: nil),
-                                          forCellWithReuseIdentifier: CellIdentifiers.nowPlayingCell.rawValue)
     }
     
     func refreshTableView() {
         DispatchQueue.main.async {
-            self.upcomingsTableView.reloadData()
+            self.mainTableView.reloadData()
         }
     }
     
-    func refreshCollectionView() {
-        DispatchQueue.main.async {
-            self.nowPlayingCollectionView.reloadData()
+    func setLoading(isLoading: Bool) {
+        if isLoading == true {
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
+        } else {
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
         }
     }
-   
+    
     func onError(title: String, message: String) {
         self.errorMessage(titleInput: title, messageInput: message)
+    }
+}
+
+// MARK: - CollectionViewCellDelegate
+extension MainViewController: NowPlayingCollectionViewTableViewCellDelegate {
+    func didTapMovie(id: Int) {
+        let detailVC = DetailViewController(movieID: id)
+        detailVC.modalPresentationStyle = .fullScreen
+        present(detailVC, animated: true)
     }
 }

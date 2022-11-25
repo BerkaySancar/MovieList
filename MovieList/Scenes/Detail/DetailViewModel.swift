@@ -20,12 +20,14 @@ final class DetailViewModel: DetailViewModelProtocol {
     private let service: MovieServiceProtocol
     private(set) var movie: Movie?
     
+    // MARK: - Init
     init(view: DetailViewProtocol,
          service: MovieServiceProtocol = MovieService()) {
         self.view = view
         self.service = service
     }
     
+    // MARK: - func getMovieDetail
     private func getMovieDetail(id: Int) {
         self.view?.setLoading(isLoading: true)
         service.fetchMovieDetail(id: id) { [weak self] results in
@@ -42,7 +44,7 @@ final class DetailViewModel: DetailViewModelProtocol {
             }
         }
     }
-    
+    // MARK: - func viewDidLoad
     func viewDidLoad(id: Int) {
         getMovieDetail(id: id)
     }
