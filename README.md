@@ -5,7 +5,6 @@ It is an application where the movies that will be upcoming and now playing are 
 ## Features
 
 - Swift UIKit
-- Storyboard
 - XIB.
 - Auto Layout
 - CocoaPods
@@ -13,6 +12,7 @@ It is an application where the movies that will be upcoming and now playing are 
 - UITableView
 - UICollectionView
 - UIPageControl
+- Pagination
 
 ## Architecture
 
